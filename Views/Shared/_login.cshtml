@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="~/css/Login.css" />
+
+    @RenderSection("ForHead", required: false)
+</head>
+<body>
+    <div id="Container">
+        <div id="top">
+            @RenderSection("title", required: false)
+        </div>
+        <div id="image1">
+            <img src="~/Content/Users/images/top.png" />
+        </div>
+    </div>
+        <div id="center">
+            @RenderBody()
+        </div>
+
+        <div  id="bottom">
+            @RenderSection("ForTail", required: false)
+
+            Copyright (C) 2000-2008 www.qingdaosoftware.com All Rights Reserved.
+            <img src="~/Content/Users/images/logo.png" id="logo" />
+            鲁ICP备00000001号|青软移动通信版权所有
+        </div>
+   
+
+</body>
+</html>

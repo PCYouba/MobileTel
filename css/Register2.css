@@ -1,0 +1,111 @@
+﻿body{
+	margin: 0;
+	padding: 0;
+	}
+*{
+	margin: 0;
+	padding: 0;
+}
+#joinn {
+    width: 701px;
+	min-height: 387px;
+}
+#joinMain{
+	width: 480px;
+	min-height: 387px;
+	margin: 15px auto;
+	background-color: #f7f6f4;
+	border: 1px solid #e2e1dd;
+}
+#JoTitle{
+    /*width: 400px;*/
+	height: 16px;
+	background-color: #5d7b9d;
+	text-align: center;
+    padding-top:2px;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+}
+.Jotxt{
+    /*width: 400px;*/
+	height: 21px;
+	/*background-color:aqua;*/
+	font-size: 14px;
+	margin-top: 7px;
+	
+	
+}
+.BankTxt {
+    width: 150px;
+    height: 19px;
+}
+.BankTxtAre {
+     width: 150px;
+    height: 39px;
+}
+.JotxtName{
+	width: 100px;
+	height: 19px;
+	
+	margin-left: 10px;
+	float: left;
+    text-align: right;
+	padding-top: 2px;
+}
+.JotxtWrite{
+	width: 155px;
+	height: 21px;
+	/*border:1px solid red;*/
+	float: left;
+}
+
+.JotxtAdd{
+	width: 480px;
+	height: 40px;
+	
+	font-size: 14px;
+	margin-top: 7px;
+}
+
+#JotxtAdd1{
+	width: 100px;
+	height: 30px;
+	/*border:1PX solid RED;*/
+	margin-left: 10px;
+	float: left;
+    text-align: right;
+	padding-top: 10px;
+}
+#JotxtAdd2{
+	width: 160px;
+	height: 40px;
+	/*border:1PX solid RED;*/
+	float: left;
+}
+.join_button {
+    padding:5px;
+	background-color:#ffffff;
+    border:2px solid #26638d;
+    -moz-border-radius:8px;
+	-webkit-border-radius:8px ;
+    border-radius:8px;
+    cursor:pointer;
+
+}
+.join_button2 {
+    padding:5px;
+	background-color:#26638d;
+    
+    border: 2px solid #E2E1DD;
+    -moz-border-radius:8px;
+	-webkit-border-radius:8px ;
+    border-radius:8px;
+    cursor:pointer;
+
+}
+.TS {
+    height: 21px;
+   
+    /*border:1PX solid #8d266f;*/
+}

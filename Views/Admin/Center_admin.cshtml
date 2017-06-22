@@ -1,0 +1,106 @@
+﻿@model PetaPoco.Page<MobileTel.Users.Models.UserInfo>
+@{
+    ViewBag.Title = "冻结/解冻";
+}
+
+@section ForHead{
+    <link rel="stylesheet" href="~/css/Center_admin.css" />
+}
+
+@section title{
+    @Html.ActionLink("首页", "UserLogin", "Users")>>后台管理界面
+}
+
+@using (Html.BeginForm("Center_admin", "Admin", FormMethod.Post))
+{
+    <div id="frame">
+        手机号码:<input type="text" id="mobileNum" name="mobileNum" class="common" >
+        <span class="warning">@ViewBag.hintNum</span>
+        @Html.ActionLink("返回主菜单", "Center", "Trade")
+        <br />
+        
+            <div id="button">
+                
+                <input type="submit" value="冻结" name="Frozen1" />
+                <input type="submit" value="解冻" name="Frozen1" />
+
+            </div>
+        <input type="submit" value="征收月租费" name="Frozen1" id="Frozen2" />
+     </div>
+}
+
+<table border="3" cellspacing="3" cellpadding="2" style="margin:0 auto;">
+    <tr style="background-color:#c8b9b9;">
+        <td class="tablee">手机号码</td>
+        <td class="tablee">姓名</td>
+        <td class="tablee">性别</td>
+        <td class="table1">最后登录时间</td>
+        <td class="tablee">话费余额</td>
+        <td class="tablee">状态</td>    
+    </tr>
+    @for (int i = 0; i < Model.Items.Count; i++)
+    {
+        <tr>
+            <td class="tablee">@Model.Items[i].mobileNum</td>
+            <td class="tablee">@Model.Items[i].uName</td>
+            <td class="tablee">@(Model.Items[i].uSex == 1 ? "男" : "女")</td>
+            <td class="table1">@Model.Items[i].lasttime</td>
+            <td class="tablee">@Model.Items[i].balance</td>
+          
+            @* 0冻结/1正常/2挂失SIM卡 *@
+            @if (Model.Items[i].status == 0)
+                {
+                <td style="color:red; background-color:yellow;" class="tablee">冻结</td>
+            }
+            @if (Model.Items[i].status == 2)
+            {
+                <td style="color:green; background-color:yellow;" class="tablee">挂失</td>
+            }
+            @if(Model.Items[i].status == 1)
+            {
+                if ( Model.Items[i].balance >= 0)
+                {
+                    <td class="tablee">正常</td>
+                }
+                if (Model.Items[i].balance < 0)
+                {
+                    <td style="color:blue;background-color:yellow;" class="tablee">欠费</td>
+                }
+
+
+            }
+           
+        </tr>
+    }
+</table>
+<div id="curr">
+   @if(Model.TotalPages > 10)
+   {
+       Model.TotalPages = 10;
+   }
+
+   共 @Model.TotalPages 页,当前第 @Model.CurrentPage 页,
+
+   @if (Model.CurrentPage > 1)
+    {
+        <span><a href="/Admin/Center_admin?page=@(Model.CurrentPage - 1)">上一页</a></span>
+    }
+    else
+    {
+        <span style="color:#4800ff">上一页</span>
+    }
+    @if (Model.CurrentPage < Model.TotalPages)
+    {
+        <span><a href="/Admin/Center_admin?page=@(Model.CurrentPage + 1)">下一页</a></span>
+    }
+    else
+    {
+        <span style="color:#4800ff">下一页</span>
+    }
+</div>
+
+
+
+
+
+

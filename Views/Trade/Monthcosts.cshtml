@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "月账单查询";
+}
+
+@section ForHead{
+    <link rel="stylesheet" href="~/css/Monthcosts.css" />
+}
+
+@section title{
+    @Html.ActionLink("首页", "UserLogin", "Users")>>月账单查询
+}
+
+
+@using (Html.BeginForm("Monthcosts", "Trade", FormMethod.Post))
+{
+    <div>
+        <img src="~/Content/Trade/images/head.png" id="img"/>请选择要查询的月份
+    </div>
+
+        <table border="0" cellspacing="1" cellpadding="2" style="background-color: #808080;"id="table">
+            <tr>
+
+                @for (int i = 0; i < 3; i++)
+                {
+                    <td class="exc" style="background-color:white"> @Html.RadioButton("time", @DateTime.Now.AddMonths(-i).ToString("yyyy-MM"))  @DateTime.Now.AddMonths(-i).ToString("yyyy年MM月")</td>
+                }
+            </tr>
+            <tr>
+                @for (int i = 3; i < 6; i++)
+                {
+                    <td class="exc" style="background-color:white">@Html.RadioButton("time", @DateTime.Now.AddMonths(-i).ToString("yyyy-MM")) @DateTime.Now.AddMonths(-i).ToString("yyyy年MM月")</td>
+                }
+            </tr>
+
+            <tr>
+                <td  style="background-color: white;" colspan="3"id="one">
+                    <input type="submit" value="查询" />
+                    @Html.ActionLink("返回主菜单", "Center", "Trade")
+                </td>
+            </tr>
+        </table>
+        <div id="below">
+            <img src="~/Content/Trade/images/men.png" id="image" />
+            <font color="red"><b>【  账单查询  】 @ViewBag.phone</b></font>
+            <br />
+            <span class="rental">@ViewBag.time 月,话费总额为 @ViewBag.money 元   </span>
+   
+    </div> 
+}

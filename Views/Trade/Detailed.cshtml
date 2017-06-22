@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "月详单查询";
+}
+
+@section ForHead{
+    <link rel="stylesheet" href="~/css/Detailed.css" />
+}
+
+@section title{
+    @Html.ActionLink("首页", "UserLogin", "Users")>>月详单查询
+}
+
+@using (Html.BeginForm("Detailed", "Trade", FormMethod.Post))
+{
+    <div>
+        <img src="~/Content/Trade/images/head.png" id="img" />请选择要查询的月份
+    </div>
+
+    <table border="0" cellspacing="1" cellpadding="2" style="background-color: #808080;" id="table">
+
+        <tr>
+
+            @for (int i = 0; i < 3; i++)
+                {
+                <td class="exc" style="background-color:white"> @Html.RadioButton("time", @DateTime.Now.AddMonths(-i).ToString("yyyy-MM"))  @DateTime.Now.AddMonths(-i).ToString("yyyy年MM月")</td>
+            }
+        </tr>
+        <tr>
+            @for (int i = 3; i < 6; i++)
+                {
+                <td class="exc" style="background-color:white">@Html.RadioButton("time", @DateTime.Now.AddMonths(-i).ToString("yyyy-MM")) @DateTime.Now.AddMonths(-i).ToString("yyyy年MM月")</td>
+            }
+        </tr>
+
+        <tr>
+            <td style="background-color: white;" colspan="3" id="one">
+                <input type="submit" value="查询" />
+                @Html.ActionLink("返回主菜单", "Center", "Trade")
+            </td>
+        </tr>
+    </table>
+        <div id="below">
+            <img src="~/Content/Trade/images/men.png" id="image" />
+            <font color="red"><b>【  账单查询  】@ViewBag.phone</b></font>
+            <div id="bot">
+                <img src="~/Content/Trade/images/Yellow.png" class="yellow" />
+                账单查询即明细账单查询
+                <br />
+                <img src="~/Content/Trade/images/Yellow.png" class="yellow" />
+                可以查询前五个月的账单
+            </div>
+        </div>
+
+        <div id="table">
+            <table border="1" cellspacing="0" cellpadding="2">
+                <tr>
+                    <td>金额</td>
+                    <td>消费类型 </td>
+                    <td>操作标志</td>
+                    <td>备注</td>
+                    <td>时间</td>
+                </tr>
+                @for (int i = 0; i < Model.Items.Count; i++)
+                {
+                    <tr>
+                        <td>@Model.Items[i].mnNum</td>
+                        @if (Model.Items[i].mnType == 0)
+                        {
+                            <td>手机消费</td>
+                        }
+                        @if (Model.Items[i].mnType == 1)
+                        {
+                            <td>手机充值</td>
+                        }
+                        <td>@Model.Items[i].actionName</td>
+
+                        <td>@Model.Items[i].actionBrief</td>
+                        <td>@Model.Items[i].actionTime</td>
+                    </tr>
+                }
+            </table>
+            共 @Model.TotalPages 页，当前 @Model.CurrentPage 页，
+            @if (Model.CurrentPage > 1)
+            {
+                <span><a href="/Trade/Detailed?page=@(Model.CurrentPage - 1)">上一页</a></span>
+            }
+            else
+            {
+                <span style="color:#c0c0c0">上一页</span>
+            }
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <span><a href="/Trade/Detailed?page=@(Model.CurrentPage + 1)">下一页</a></span>
+            }
+            else
+            {
+                <span style="color:#c0c0c0">下一页</span>
+            }
+
+        </div>
+
+}

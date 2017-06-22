@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "管理员登录";
+}
+
+@section ForHead{
+
+    <link rel="stylesheet" href="~/css/AdminLogin.css" />
+    <script type="text/javascript" src="~/js/Register.js" charset="UTF-8"></script>
+}
+
+@section title{
+   @Html.ActionLink("首页", "UserLogin", "Admin")>>管理员登录
+}
+
+<div id="net">
+    <font><b>管理员登录</b></font>
+</div>
+<div id="login">
+    @using (Html.BeginForm("AdminLogin", "Admin", FormMethod.Post))
+    {
+        <div id="start">
+            管理员号：<input type="text" id="mobileNum" name="mobileNum" class="common" />
+            <span class="warning">@ViewBag.hintmobile</span>
+            <br /><br /><br />
+            密　　码: <input type="password" id="password" name="password" class="common" />
+            <span class="warning">@ViewBag.hintpass</span>
+            <br /><br /><br />
+            <div>
+                验 证 码：<input type="text" name="CheckCode" />
+                <span>@ViewBag.hintcheck</span>
+                <br />
+                <img id="CheckImg" src="/Users/CheckCode" title="点击换验证码" onclick="ChangeImg()" />
+            </div>
+            <div id="button">
+                <input type="submit" value="登录" />
+                <input type="reset" value="重置" />
+            </div>
+        </div>
+    }
+</div>
+<div id="one">
+    @Html.ActionLink(">>用户登录", "UserLogin", "Users")
+</div>
+
+<div id="two">
+    @Html.ActionLink(">>新用户注册", "Register", "Users")
+</div>
+<div id="border"></div>
+

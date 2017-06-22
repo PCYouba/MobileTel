@@ -1,0 +1,49 @@
+﻿body {
+}
+#img{
+    width:10px;
+    height:10px;
+    margin:30px 0 0 130px;
+}
+#table{
+    margin:20px 0 0 150px;
+}
+.tab{
+    width:180px;
+    height:30px;
+}
+#one{
+    height:40px;
+}
+#below{
+    width:560px;
+    height:120px;
+    background-color:#f0f0f0;
+     margin:20px 0 0 150px;
+     
+}
+#image{
+    width:45px;
+    height:35px;
+}
+.yellow{
+    width:17px;
+    height:17px;
+}
+#bot{
+    /*border:1px solid #808080;*/
+    width:230px;
+    height:80px;
+    margin:15px 0 0 40px;
+}
+.exc{
+    width:150px;
+}
+.rental{
+    width:350px;
+    height:30px;
+    margin: 50px 0 0 50px;
+    margin-top:60px;
+    /*border:1px solid black;*/
+    font-family:"微软雅黑";
+}

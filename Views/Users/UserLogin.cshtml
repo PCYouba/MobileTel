@@ -1,0 +1,51 @@
+﻿@model MobileTel.Users.Models.UserInfo
+@{
+    ViewBag.Title = "用户登录";
+}
+
+@section ForHead{
+    
+    <link rel="stylesheet"href="~/css/UserLogin.css"/>
+    <script type="text/javascript" src="~/js/UserLogin.js" charset="UTF-8"></script>
+  }
+
+@section title{
+   <b> 首页 > 用户登录</b>
+    }
+
+<div id="net">
+      <font><b>网上营业厅</b></font>
+</div>
+<div id="login">
+    @using (Html.BeginForm("UserLogin", "Users", FormMethod.Post))
+    {
+        <div id="start">
+            手机号码：<input type="text" id="mobileNum" name="mobileNum" class="common" value="@Model.mobileNum"/>
+            <span class="warning">@ViewBag.hintmobile</span>
+            <br /><br /><br />
+            密　　码: <input type="password" id="password" name="password" class="common" value="@Model.uPass" />
+            <span class="warning">@ViewBag.hintpass</span>
+            <br /><br /><br />
+            <div>
+             验 证 码：<input type="text" name="CheckCode" />
+                <span>@ViewBag.hintcheck</span>
+                <br />
+                <img id="CheckImg" src="/Users/CheckCode" title="点击换验证码" onclick="ChangeImg()" />
+            </div>
+            <div id="button">
+                <input type="submit" value="登录" />
+                <input type="reset" value="重置" />
+            </div>
+        </div>
+    }
+</div>
+<div id="one">
+   
+    @Html.ActionLink(">>新用户注册", "Register", "Users")
+  
+</div>
+
+<div id="two">
+    @Html.ActionLink(">>管理员登录", "AdminLogin", "Admin")
+</div>
+<div id="border"></div>

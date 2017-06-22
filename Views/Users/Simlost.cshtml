@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "挂失SIM卡";
+}
+
+@section ForHead{
+    <link rel="stylesheet" href="~/css/Pay.css" />
+}
+
+@section title{
+    @Html.ActionLink("首页", "UserLogin", "Users")>>挂失SIM卡
+}
+
+
+@using (Html.BeginForm("Simlost", "Users", FormMethod.Post))
+{
+    <div id="frame">
+        手机号码:<input type="text" id="mobileNum" name="mobileNum" class="common" value=" @ViewBag.mobileNum "readonly>
+        <span class="warning">@ViewBag.hintNum</span>
+        <br /><br /><br />
+        确认密码: <input type="password" id="pass" name="pass" class="common" />
+        <span class="warning">@ViewBag.hintpass</span>
+        <br /><br /><br />
+
+        <div id="button">
+            <input type="submit" value="确定" />
+            <input type="reset" value="重置" />
+            @Html.ActionLink("返回主菜单", "Center", "Trade")
+        </div>
+    </div>
+}
+
+

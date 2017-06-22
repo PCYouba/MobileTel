@@ -1,0 +1,103 @@
+﻿@model MobileTel.Users.Models.UserInfo
+@{
+    ViewBag.Title = "用户注册";
+}
+
+@section ForHead{
+    <link rel="stylesheet" href="~/Content/Users/css/Register.css" />
+    }
+
+@section title{
+    @Html.ActionLink("首页", "UserLogin", "Users")>>用户注册
+    }
+
+<div id="RegContainer">
+    <div id="blue">
+       <font><b>注册新账户</b></font> 
+    </div>
+    @using (Html.BeginForm("Register", "Users", FormMethod.Post))
+    {
+        
+    
+        <div class="FormItem">
+            <div class="one">手机号码:</div>
+            <div class="two">@Html.TextBoxFor(Model => Model.mobileNum, htmlAttributes: new { @class = "TbStyle" })
+            <span class="TipInfo">@Html.ValidationMessageFor(Model => Model.mobileNum)</span>
+            </div>
+        </div>
+      
+        <div class="FormItem">
+            <div class="one">登录密码：</div>
+            <div class="two">
+                @Html.PasswordFor(Model => Model.uPass, htmlAttributes: new { @class = "TbStyle" })
+                <span class="TipInfo">@Html.ValidationMessageFor(Model => Model.uPass)</span></div>
+            </div>
+
+        <div class="FormItem">
+            <div class="one"> 确认密码：</div>
+            <div class="two">
+                <input type="password" name="LoginPass1" id="LoginPass1" class="TbStyle">
+                <span>@ViewBag.hintpass</span>
+            </div>
+            </div>
+        <div class="FormItem">
+            <div class="one">姓　　名:</div>　
+            <div class="two">
+                @Html.TextBoxFor(Model => Model.uName, htmlAttributes: new { @class = "TbStyle" })
+                <span class="TipInfo">@Html.ValidationMessageFor(Model => Model.uSex)</span>
+            </div>
+            </div>
+        <div class="FormItem">
+            <div class="one">性　　别:</div>　
+            <div class="two">
+                @Html.RadioButtonFor(Model => Model.uSex, "1")男 @Html.RadioButtonFor(Model => Model.uSex, "0")女
+                <span class="tishi">@Html.ValidationMessageFor(Model => Model.uSex)</span>
+            </div>
+            </div>
+        <div class="FormItem">
+            <div class="one">地　　址：</div>
+            <div class="two">
+                @Html.TextAreaFor(Model => Model.uAddress, htmlAttributes: new { @class = "TbStyle" })
+            <span class="TipInfo">@Html.ValidationMessageFor(Model => Model.uAddress)</span>
+            </div>
+        </div>
+        <div class="FormItem">
+            <div class="one">邮　　编：</div>          
+            <div class="two">
+                @Html.TextBoxFor(Model => Model.uPostcode, htmlAttributes: new { @class = "TbStyle" })
+                <span class="TipInfo">@Html.ValidationMessageFor(Model => Model.uPostcode)</span>
+            </div>
+            </div>
+        <div class="FormItem">
+            <div class="one"> 电子邮件：</div>
+            <div class="two">
+                @Html.TextBoxFor(Model => Model.email, htmlAttributes: new { @class = "TbStyle" })
+            <span class="TipInfo">@Html.ValidationMessageFor(Model => Model.email)</span>
+            </div>
+        </div>
+       
+        <div class="FormItem">
+            <div class="one">安全提示：</div>
+            <div class="two">
+                @Html.TextAreaFor(Model => Model.question, htmlAttributes: new { @class = "TbStyle" })
+            <span class="TipInfo">@Html.ValidationMessageFor(Model => Model.question)</span>
+            </div>
+        </div>
+        <div class="FormItem">
+            <div class="one">安全答案：</div>
+
+                <div class="two">
+                    @Html.TextAreaFor(Model => Model.answer, htmlAttributes: new { @class = "TbStyle" })
+                    <span class="TipInfo">@Html.ValidationMessageFor(Model => Model.answer)</span>
+                </div>
+        
+        </div>
+
+        
+            <br />
+                    <div id="below">
+                        <input type="submit" value="创建新用户" />
+                    </div>
+
+    }
+</div>

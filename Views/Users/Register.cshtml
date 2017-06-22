@@ -1,0 +1,151 @@
+﻿@model MobileTel.Users.Models.UserInfo
+@{
+    ViewBag.Title = "用户注册";
+}
+
+@section ForHead{
+    <link rel="stylesheet" href="~/css/Register2.css" />
+}
+
+@section title{
+    @Html.ActionLink("首页", "UserLogin", "Users")>>用户注册
+}
+
+
+
+@using (Html.BeginForm("Register", "Users", FormMethod.Post))
+{
+    <div id="joinMain">
+        <div id="JoTitle">
+            注册新账户
+        </div>
+        <div class="Jotxt">
+            <div class="JotxtName">
+                手机号码：
+            </div>
+            <div class="JotxtWrite">
+                @Html.TextBoxFor(Model => Model.mobileNum, htmlAttributes: new { @class = "BankTxt" })
+            </div>
+            <div class="TS">
+                @Html.ValidationMessageFor(Model => Model.mobileNum)
+            </div>
+           
+        </div>
+        <div class="Jotxt">
+            <div class="JotxtName">
+                密码：
+            </div>
+            <div class="JotxtWrite">
+                @Html.PasswordFor(Model => Model.uPass, htmlAttributes: new { @class = "BankTxt" })
+            </div>
+            <div class="TS">
+                @Html.ValidationMessageFor(Model => Model.uPass)
+            </div>
+            
+        </div>
+        <div class="Jotxt">
+            <div class="JotxtName">
+                确认密码：
+            </div>
+            <div class="JotxtWrite">
+                <input type="password" id="LoginPass1" name="LoginPass1" class = "BankTxt"  />
+               
+            </div>
+            <div class="TS">
+                @ViewBag.hintpass
+            </div>
+            
+        </div>
+        <div class="Jotxt">
+            <div class="JotxtName">
+                姓名：
+            </div>
+            <div class="JotxtWrite">
+                @Html.TextBoxFor(Model => Model.uName, htmlAttributes: new { @class = "BankTxt" })
+            </div>
+            <div class="TS">
+                @Html.ValidationMessageFor(Model => Model.uSex)
+            </div>
+        </div>
+        <div class="Jotxt">
+            <div class="JotxtName">
+                性别：
+            </div>
+            <div class="JotxtWrite">
+                &nbsp;
+                @Html.RadioButtonFor(Model => Model.uSex, 0, new { @id = "SEX1", @name = "SEX" }) 女
+                &nbsp;
+                @Html.RadioButtonFor(Model => Model.uSex, 1, new { @id = "SEX2", @name = "SEX" }) 男
+            </div>
+            <div class="TS">
+
+            </div>
+        </div>
+        <div class="JotxtAdd">
+            <div id="JotxtAdd1">
+                地址：
+            </div>
+            <div id="JotxtAdd2">
+                @Html.TextAreaFor(Model => Model.uAddress, htmlAttributes: new { @class = "BankTxtAre" })
+            </div>         
+        </div>
+        <div class="Jotxt">
+            <div class="JotxtName">
+                邮编：
+            </div>
+            <div class="JotxtWrite">
+                @Html.TextBoxFor(Model => Model.uPostcode, htmlAttributes: new { @class = "BankTxt" })
+            </div>
+            <div class="TS">
+                @Html.ValidationMessageFor(Model => Model.uPostcode)
+            </div>
+        </div>
+        <div class="Jotxt">
+            <div class="JotxtName">
+                电子邮件：
+            </div>
+            <div class="JotxtWrite">
+                @Html.TextBoxFor(Model => Model.email, htmlAttributes: new { @class = "BankTxt" })
+            </div>
+            <div class="TS">
+                @Html.ValidationMessageFor(Model => Model.email)
+            </div>
+        </div>
+        <div class="Jotxt">
+            <div class="JotxtName">
+                安全提示问题：
+            </div>
+            <div class="JotxtWrite">
+                @Html.TextBoxFor(Model => Model.question, htmlAttributes: new { @class = "BankTxt" })
+            </div>
+            <div class="TS">
+                @Html.ValidationMessageFor(Model => Model.question)
+            </div>
+        </div>
+        <div class="Jotxt">
+            <div class="JotxtName">
+                安全答案：
+            </div>
+            <div class="JotxtWrite">
+                @Html.TextBoxFor(Model => Model.answer, htmlAttributes: new { @class = "BankTxt" })
+            </div>
+            <div class="TS">
+                @Html.ValidationMessageFor(Model => Model.answer)
+            </div>
+        </div>
+        <div class="Jotxt">
+
+        </div>
+        <div class="Jotxt" style="text-align:center ">
+            <input type="submit" value="创建用户" class="join_button" id="joinbtn" />
+            &nbsp;
+            <input type="reset" value="重置" class="join_button" />
+            &nbsp;
+        </div>
+
+    </div>
+
+
+}
+
+

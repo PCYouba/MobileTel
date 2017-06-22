@@ -1,0 +1,80 @@
+﻿@*@model MobileTel.Users.Models.UserInfo*@
+@{
+    ViewBag.Title = "网上营业厅";
+}
+
+@section ForHead
+{
+    <link rel="stylesheet" href="~/css/Center.css" />
+}
+
+@section title{
+    @Html.ActionLink("首页", "UserLogin", "Users")>>网上营业厅
+}
+
+<div id="MenContainer">
+    <div id="left">
+        <div> 手机号码：@Model.mobileNum</div>
+        <br />
+        <div>姓名：@Model.uName </div>
+        <br />
+        <div>性别：@(Model.uSex == 1 ? "男" : "女")</div>
+        <br />
+        <div> 地址：@Model.uAddress</div>
+        <br />
+        <div>邮编：@Model.uPostcode </div>
+        <br /><br />
+        <div>话费余额：@Model.balance </div>
+    </div>
+
+    <div id="right">
+        <br />
+        <div>
+         &nbsp;<b>请选择服务：</b>
+        </div>
+        <br />
+        <div id="content">
+            <div class="font">
+                <img src="~/Content/Trade/images/san.png" class="san" />
+                @Html.ActionLink("预存话费", "Pay")
+            </div>
+            <br />
+            <div>
+                <img src="~/Content/Trade/images/san.png"  class="san"/>
+                @Html.ActionLink("通话/发短信", "TelSms")
+            </div>
+            <br />
+            <div>
+                <img src="~/Content/Trade/images/san.png"  class="san"/>
+                @Html.ActionLink("第三方代扣", "Checkoff")
+            </div>
+            <br />
+            <div>
+                <img src="~/Content/Trade/images/san.png" class="san" />
+                @Html.ActionLink("月账单查询", "Monthcosts")
+            </div>
+            <br />
+            <div>
+                <img src="~/Content/Trade/images/san.png" class="san" />
+                @Html.ActionLink("月详单查询", "Detailed")
+                <br />
+            </div>
+            <br />
+            <div>
+                <img src="~/Content/Trade/images/san.png" class="san" />
+                @Html.ActionLink("挂失SIM卡", "Simlost", "Users")
+            </div>
+            <br />
+            <div>
+                <img src="~/Content/Trade/images/san.png" class="san" />
+                @Html.ActionLink("修改资料", "Modify", "Users")
+            </div>
+            <br />
+            <div>
+                <img src="~/Content/Trade/images/san.png" class="san" />
+                @Html.ActionLink("返回登陆界面", "UserLogin", "Users")
+            </div>
+        </div>
+
+    </div>
+</div>

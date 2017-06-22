@@ -1,0 +1,41 @@
+﻿body {
+}
+
+#Container {
+    border: 2px solid #939393;
+    width: 900px;
+    height:175px;
+    margin: 40px auto;
+    
+    }
+#top{
+    height:30px;
+    width:900px;
+    background-color:#d5d5d5;
+}
+#image1{
+    width:900px;
+    height:60px;
+  
+}
+#center{
+    width:900px;
+    min-height:400px;
+    margin:-50px auto;
+    border:2px solid #939393;
+
+}
+#bottom{
+    width:900px;
+    height:30px;  
+    float:left;  
+    margin:50px 0 0 222px;
+    border:2px solid #969696;
+    font-size:unset;
+    border-radius:30px;
+}
+#logo{
+    width:28px;
+    height:19px;
+    margin:3px 0 0 0;
+}
